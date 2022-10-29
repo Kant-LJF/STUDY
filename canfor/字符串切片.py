@@ -9,3 +9,8 @@ for i in range(0,len(str)):
         list.append(str[i])
 
 print("".join(list))
+
+a = "axbyczdj"
+print(a[::2])
+print(a[::3])
+print(a[::-1])
