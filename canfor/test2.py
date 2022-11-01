@@ -20,23 +20,21 @@ import requests
 def getUsernames(threshold):
     # Write your code here
     list = []
-    for i in range(1, threshold + 1):
-        r = requests.request('GET', 'https://jsonmock.hackerrank.com/api/article_users?page=', params=i).json()
+    for i in range(1, 3):
+        r = requests.request('GET', 'https://jsonmock.hackerrank.com/api/article_users?page=%d'%i, params={}).json()
         for j in range(0, len(r["data"]) ):
 
             if r["data"][j]["submission_count"] > threshold:
 
                 print(r["data"][j]["username"])
-                list.append(r["data"][j]["username"])
+                if r["data"][j]["username"] not in list:
+                    list.append(r["data"][j]["username"])
 
-            for k in list:  #剔除重复 其实不剔除好像也可以
-                if k not in list: list.append(k)
             if len(list) > threshold-1:
                 break;
         if len(list) > threshold-1:
             break;
     return list
-
 
 if __name__ == '__main__':
 
