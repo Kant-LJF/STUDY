@@ -12,6 +12,8 @@ def multiply(a, b):
     12
     >>> multiply('a', 3)
     'aaa'
+    >>> multiply('a', 4)
+    'aaa'
     """
     return a * b
 if __name__=='__main__':
